@@ -3,11 +3,11 @@ import './App.scss';
 
 class App extends Component {
     state = {  }
-    render() { 
+    render() {
         return (
             <h1 className="header">Hello</h1>
         );
     }
 }
- 
+
 export default App;
