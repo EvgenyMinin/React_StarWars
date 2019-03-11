@@ -1,0 +1,26 @@
+$bgcolorLiHover: #444;
+$headerLogoColor: #fff;
+$headerLogoColorHover: #00bc8c;
+
+.header {
+    margin-top: 1rem;
+    padding-left: 1rem;
+    & ul li {
+        list-style-type: none;
+        margin: 0;
+        padding: .5rem 1rem;
+        border-radius: 3px;
+        &:hover {
+            background-color: $bgcolorLiHover;
+        }
+    }
+    & a:hover {
+        text-decoration: none;
+    }
+    & h3 a {
+        color: $headerLogoColor;
+        &:hover {
+            color: $headerLogoColorHover;
+        }
+    }
+}

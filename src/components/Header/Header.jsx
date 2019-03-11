@@ -3,7 +3,24 @@ import './Header.scss';
 
 const Header = () => {
     return (
-        <h1>Header</h1>
+        <div className="header d-flex">
+            <h3>
+                <a href="#">
+                    StarWars
+                </a>
+            </h3>
+            <ul className="d-flex">
+                <li>
+                    <a href="#">People</a>
+                </li>
+                <li>
+                    <a href="#">Planets</a>
+                </li>
+                <li>
+                    <a href="#">Starships</a>
+                </li>
+            </ul>
+        </div>
     );
 }
  

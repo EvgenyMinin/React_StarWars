@@ -1,0 +1,23 @@
+.person-details {
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
+    margin-top: 1rem;
+    &__image {
+        width: 30%;
+        height: 30%;
+        border-radius: 10px;
+    }
+}
+
+.list-group-item__title {
+    margin-right: .5rem;
+}
+
+.custom-item {
+    padding: .25rem;
+}
+
+.custom-card-body {
+    padding-right: 0;
+}

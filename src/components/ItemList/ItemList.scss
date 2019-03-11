@@ -1,0 +1,12 @@
+$bgcolorListItemHover: #00bc8c;
+
+.item-list {
+    margin: 1rem 0;
+}
+
+.custom-li-group {
+    cursor: pointer;
+    &:hover {
+        color: $bgcolorListItemHover;
+    }
+}
