@@ -7,7 +7,7 @@ import './App.scss';
 
 class App extends Component {
     state = {
-        personSelected: null
+        personSelected: 1
     }
 
     handlePersonSelected = (id) => {
