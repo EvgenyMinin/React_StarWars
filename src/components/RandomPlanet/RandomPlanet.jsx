@@ -6,10 +6,10 @@ import './RandomPlanet.scss';
 
 class RandomPlanet extends Component {
 
-    constructor() {
-        super();
+    componentDidMount() {
         this.updatePlanet();
-    };
+        this.interval = setInterval(this.updatePlanet, 5000);
+    }
 
     swapiService = new SwapiService();
 
@@ -34,7 +34,7 @@ class RandomPlanet extends Component {
         });
     }
 
-    updatePlanet() {
+    updatePlanet = () => {
         const id = Math.floor(Math.random()*20) + 2;
         this.swapiService
             .getPlanet(id)

@@ -6,18 +6,28 @@ import PersonDetails from './../PersonDetails';
 import './App.scss';
 
 class App extends Component {
-    state = {  }
+    state = {
+        personSelected: null
+    }
+
+    handlePersonSelected = (id) => {
+        this.setState({
+            personSelected: id
+        });
+    }
+
     render() {
+        const { personSelected } = this.state;
         return (
             <div className="app-container">
                 <Header />
                 <RandomPlanet />
                 <div className="row">
                     <div className="col-md-6">
-                        <ItemList />
+                        <ItemList onPersonSelected={this.handlePersonSelected} />
                     </div>
                     <div className="col-md-6">
-                        <PersonDetails />
+                        <PersonDetails personId={personSelected} />
                     </div>
                 </div>
             </div>
