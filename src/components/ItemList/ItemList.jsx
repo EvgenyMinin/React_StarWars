@@ -38,7 +38,7 @@ class ItemList extends Component {
     render() {
         const { peopleList } = this.state;
         const people = this.renderPeople(peopleList);
-        if (!peopleList) {
+        if (peopleList.length === 0) {
             return <Spinner />;
         }
         return (
