@@ -5,6 +5,7 @@ import ItemDetails, { Record } from './../ItemDetails/ItemDetails';
 import Row from './../Row/Row';
 import SwapiService from './../../services/SwapiService';
 import { PersonList, PlanetList, StarshipList, PersonDetails, PlanetDetails, StarshipDetails } from '../StarWarsComponents';
+import { SwapiServiceProvider, SwapiServiceConsumer } from '../../services/SwapiServiceContext';
 import './App.scss';
 
 class App extends Component {
@@ -37,26 +38,23 @@ class App extends Component {
             </ItemDetails>
         );
         return (
-            <div className="app-container">
-                <Header />
-                <RandomPlanet />
+            <SwapiServiceProvider value={this.swapiService}>
+                <div className="app-container">
+                    <Header />
+                    <RandomPlanet />
 
-                <PersonDetails itemId={11}/>
-                <PlanetDetails itemId={5}/>
-                <StarshipDetails itemId={9}/>
+                    <PersonDetails itemId={11}/>
+                    <PlanetDetails itemId={5}/>
+                    <StarshipDetails itemId={9}/>
 
-                <PersonList />
+                    <PersonList />
 
-                <PlanetList />
+                    <PlanetList />
 
-                <StarshipList />
+                    <StarshipList />
 
-                <Row 
-                    list={personDetails}
-                    details={starshipDetails}
-                />
-
-            </div>
+                </div>
+            </SwapiServiceProvider>
         );
     }
 }
