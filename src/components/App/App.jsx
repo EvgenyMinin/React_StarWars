@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import Header from './../Header';
 import RandomPlanet from './../RandomPlanet';
 import ItemDetails, { Record } from './../ItemDetails/ItemDetails';
-import Row from './../Row/Row';
 import SwapiService from './../../services/SwapiService';
 import { PersonList, PlanetList, StarshipList, PersonDetails, PlanetDetails, StarshipDetails } from '../StarWarsComponents';
-import { SwapiServiceProvider, SwapiServiceConsumer } from '../../services/SwapiServiceContext';
+import { SwapiServiceProvider } from '../../services/SwapiServiceContext';
 import './App.scss';
 
 class App extends Component {
@@ -14,29 +13,6 @@ class App extends Component {
     state = {  }
 
     render() {
-        const { getPerson, getStarship, getPersonImage, getStarshipImage } = this.swapiService;
-        const personDetails = (
-            <ItemDetails
-                itemId={10}
-                getData={getPerson}
-                getImageUrl={getPersonImage}
-            >
-                <Record field="gender" label="Gender" />
-                <Record field="eyeColor" label="Eye Color" />
-            </ItemDetails>
-        );
-
-        const starshipDetails = (
-            <ItemDetails
-                itemId={5}
-                getData={getStarship}
-                getImageUrl={getStarshipImage}
-            >
-                <Record field="model" label="Model" />
-                <Record field="length" label="Length" />
-                <Record field="crew" label="Crew" />
-            </ItemDetails>
-        );
         return (
             <SwapiServiceProvider value={this.swapiService}>
                 <div className="app-container">

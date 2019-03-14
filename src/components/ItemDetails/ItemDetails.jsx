@@ -48,7 +48,7 @@ class ItemDetails extends Component {
         const { item, image } = this.state;
         const { name } = item;
         
-        if (!item) {
+        if (item.length === 0) {
             return <span>Select a item from a list</span>
         }
         return (
