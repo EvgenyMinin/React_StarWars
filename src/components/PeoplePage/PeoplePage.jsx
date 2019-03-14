@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import ItemList from './../ItemList/index';
 import PersonDetails from './../PersonDetails/PersonDetails';
 import './PeoplePage.scss';
+import Row from './../Row/Row';
+import ItemDetails from '../ItemDetails/ItemDetails';
 
 class PeoplePage extends Component {
     state = {
@@ -15,16 +17,19 @@ class PeoplePage extends Component {
     }
 
     render() {
+        const itemList = (
+            <ItemList
+                onItemSelected={this.onPersonSelected}
+                getData={this.swapiService.getAllPeople}
+                renderItem={(i) => `${i.name}, (${i.birthYear})`}    
+            />
+        );
         const { personSelected } = this.state;
+        const personDetails = (
+            <ItemDetails personId={personSelected}/>
+        );
         return (
-            <div className="row">
-                <div className="col-md-6">
-                    <ItemList onPersonSelected={this.handlePersonSelected} />
-                </div>
-                <div className="col-md-6">
-                    <PersonDetails personId={personSelected} />
-                </div>
-            </div>
+            <Row list={itemList} details={personDetails}/>
         );
     }
 }

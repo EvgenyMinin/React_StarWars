@@ -86,7 +86,7 @@ const PlanetView = ({planet}) => {
                         <span>{rotationPeriod}</span>
                     </li>
                     <li className="list-group-item custom-item">
-                        <span className="list-group-item__title">Diametr:</span>
+                        <span className="list-group-item__title">Diameter:</span>
                         <span>{diameter}</span>
                     </li>
                 </ul>
