@@ -1,4 +1,10 @@
+$mainTextColor: #007053;
+
 .app-container {
     width: 80%;
     margin: 0 auto;
+    &__main {
+        color: $mainTextColor;
+        text-align: center;
+    }
 }
