@@ -6,6 +6,7 @@ import SwapiService from './../../services/SwapiService';
 import { SwapiServiceProvider } from '../../services/SwapiServiceContext';
 import { PeoplePage, PlanetsPage, StarshipsPage } from './../Pages';
 import './App.scss';
+import { StarshipDetails } from '../StarWarsComponents';
 
 class App extends Component {
 
@@ -23,7 +24,13 @@ class App extends Component {
                         <Route path="/" exact render={() => <h2 className="app-container__main">Welcome to StarWars application</h2>} />
                         <Route path='/people' component={PeoplePage} />
                         <Route path='/planets' component={PlanetsPage} />
-                        <Route path='/starships' component={StarshipsPage} />
+                        <Route path='/starships' exact component={StarshipsPage} />
+                        <Route path='/starships/:id'
+                            render={({ match }) => {
+                                const { id } = match.params;
+                                return <StarshipDetails itemId={id}/>
+                            }}
+                        />
                     </div>
                 </BrowserRouter>
             </SwapiServiceProvider>
