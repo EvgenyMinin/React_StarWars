@@ -4,17 +4,27 @@ import Header from './../Header';
 import RandomPlanet from './../RandomPlanet';
 import SwapiService from './../../services/SwapiService';
 import { SwapiServiceProvider } from '../../services/SwapiServiceContext';
-import { PeoplePage, PlanetsPage, StarshipsPage } from './../Pages';
+import { PeoplePage, PlanetsPage, StarshipsPage, SecretPage, LoginPage } from './../Pages';
 import './App.scss';
 import { StarshipDetails } from '../StarWarsComponents';
 
 class App extends Component {
 
     state = {
-        swapiService: new SwapiService()
+        swapiService: new SwapiService(),
+        isLoggedIn: false,
+        loginInfo: 'Login to see the secret page!'
+    };
+
+    onLogin = () => {
+        this.setState({
+            isLoggedIn: true,
+            loginInfo: 'Successfully login. You can see the secter page.'
+        });
     };
 
     render() {
+        const { isLoggedIn, loginInfo } = this.state;
         return (
             <SwapiServiceProvider value={this.state.swapiService}>
                 <BrowserRouter>
@@ -30,6 +40,20 @@ class App extends Component {
                                 const { id } = match.params;
                                 return <StarshipDetails itemId={id}/>
                             }}
+                        />
+                        <Route path='/login'
+                            render={() => (
+                                <LoginPage
+                                    isLoggedIn={isLoggedIn}
+                                    onLogin={this.onLogin}
+                                    loginInfo={loginInfo}
+                                />
+                            )}
+                        />
+                        <Route path='/secret'
+                            render={() => (
+                                <SecretPage isLoggedIn={isLoggedIn} />
+                            )}
                         />
                     </div>
                 </BrowserRouter>

@@ -4,10 +4,8 @@ import { PersonList, PersonDetails } from '../StarWarsComponents';
 import Row from './../Row/index';
 
 const PeoplePage = ({ history, match }) => {
-    console.log(match);
 
     const { id } = match.params;
-    console.log(id);
     
     return (
         <Row
