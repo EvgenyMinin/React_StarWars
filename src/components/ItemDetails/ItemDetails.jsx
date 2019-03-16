@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './ItemDetails.scss';
-import Spinner from './../Spinner/Spinner';
 
 const Record = ({item, field, label}) => {
     return (
@@ -50,7 +49,7 @@ class ItemDetails extends Component {
         const { name } = item;
         
         if (item.length === 0) {
-            return <Spinner />
+            return <span>Select a item from a list</span>
         }
         return (
             <div className="item-details card">
