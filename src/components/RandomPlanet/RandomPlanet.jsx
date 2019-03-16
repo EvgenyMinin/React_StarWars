@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import SwapiService from './../../services/SwapiService';
 import Spinner from '../Spinner/Spinner';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
@@ -8,6 +9,10 @@ class RandomPlanet extends Component {
 
     static defaultProps = {
         updateInterval: 5000
+    };
+
+    static propTypes = {
+        updateInterval: PropTypes.number
     };
 
     componentDidMount() {
